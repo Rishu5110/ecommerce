@@ -68,7 +68,7 @@ function admin_get_products()
 
     if(x.length == 0)
     {
-        table.innerHTML = "<tr><td colspan='8'>No Product Found</td></tr>";
+        table.innerHTML = "<tr><td colspan='9'>No Product Found</td></tr>";
         return;
     }
     else
