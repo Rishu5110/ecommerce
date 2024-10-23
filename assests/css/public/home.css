@@ -1,0 +1,12 @@
+#featured_products
+{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.product
+{
+    border: 4px solid black;
+    padding: 10px;
+    width: 300px;
+}

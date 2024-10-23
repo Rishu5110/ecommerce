@@ -59,7 +59,6 @@ function addProduct()
     }
 }
 
-
 function admin_get_products()
 {
     let table = document.getElementById('admin_product_table');
@@ -77,6 +76,7 @@ function admin_get_products()
 
         for (let i = 0; i < x.length; i++) 
         {
+
             let tr = document.createElement('tr');
             tr.innerHTML = `<td>${i+1}</td>
                             <td><img src="${x[i].image}" alt="No Image Found" width="80px"></td>
@@ -93,6 +93,7 @@ function admin_get_products()
                             </td>`;
 
             table.appendChild(tr);
+
         }
 
     }
@@ -195,7 +196,54 @@ function saveProductChanges()
 
 }
 
+function home_show_featured_products()
+{
 
+    let div = document.getElementById('featured_products');
+
+    let x = JSON.parse(localStorage.getItem(product_key)) || [];
+
+    if(x.length == 0)
+    {
+        div.innerHTML = "No Products Found";
+        return;
+    }
+    else
+    {
+        div.innerHTML = "";
+
+        for (let i = 0; i < x.length; i++) 
+        {
+
+            if(!x[i].is_featured)
+                continue;
+
+            let tr = document.createElement('div');
+            tr.innerHTML = `<div class="product">
+            
+            <div>
+                <img src="${x[i].image}" alt="pro img">
+            </div>
+
+            <div>
+                <p>${x[i].name || ""}</p>
+                <p>${x[i].price || ""}</p>
+            </div>
+            
+            <div>
+                <button>Buy Now</button>
+                <button>Wishlist</button>
+            </div>
+
+        </div>`
+
+            div.appendChild(tr);
+            
+        }
+
+    }
+
+}
 
     
 
